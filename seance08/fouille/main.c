@@ -50,6 +50,26 @@ void tri_selection(int tab[], int taille) {
     }
 }
 
+void tri_bulles(int tab[], int taille) {
+    int limite = taille;
+    int permutation = 1;
+
+    while (limite > 1 && permutation) {
+        permutation = 0;
+        for (int i=0; i<limite-1; i++) {
+            if (tab[i]>tab[i+1]) {
+                permutation = 1;
+                int copie = tab[i];
+                tab[i] = tab[i+1];
+                tab[i+1] = copie;
+            }
+        }
+        limite--;
+    }
+}
+
+
+
 
 
 
@@ -68,6 +88,7 @@ int main(void) {
 
     int mon_tableau[] = {45, 23, 89, 67, 12, 19, 23, 5, 18, 101, 34};
     int mon_tableau2[] = {45, 23, 89, 67, 12, 19, 23, 5, 18, 101, 34};
+    int mon_tableau3[] = {45, 23, 89, 67, 12, 19, 23, 5, 18, 101, 34};
     printf("Tableau original: ");
     afficher_tableau(mon_tableau, 11);
 
@@ -79,6 +100,9 @@ int main(void) {
     printf("Apres tri selection: ");
     afficher_tableau(mon_tableau2, 11);
 
+    tri_bulles(mon_tableau3, 11);
+    printf("Apres tri a bulles: ");
+    afficher_tableau(mon_tableau3, 11);
 
 
     return 0;
